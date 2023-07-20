@@ -1,5 +1,5 @@
 #include"seqStack.h"
-
+#if 1
 struct Person
 {
 	char m_cName[64];
@@ -32,6 +32,59 @@ void test()
 	printf("size:%d\n", size);
 	DestroySeqStack(stack);
 }
+#else
+int isLeft(char c)
+{
+	return c == '(';
+}
+int isRight(char c)
+{
+	return c == ')';
+}
+void printError(char* str,const char* err, char* p)
+{
+	printf("%s\n", err);
+	printf("%s\n", str);
+	int pos = p - str;
+	for (int i = 0; i < pos; i++)
+	{
+		printf(" ");
+	}
+	printf("A\n");
+}
+void test()
+{
+	char str[] = "1+3*(2-)-)99+(";
+	char* p = str;
+	SeqStack stack = InitSeqStack();
+	while (*p!='\0')
+	{
+		if (isLeft(*p))
+		{
+			PushSeqStack(stack, p);
+		}
+		else if (isRight(*p))
+		{
+			if (!EmptySeqStack(stack))
+			{
+				PopSeqStack(stack);
+			}
+			else
+			{
+				printError(str, "Ã»ÓÐÆ¥Åäµ½×óÀ¨ºÅ", p);
+				break;
+			}
+		}
+		p++;
+	}
+	while (!EmptySeqStack(stack))
+	{
+		printError(str, "Ã»ÓÐÆ¥Åäµ½ÓÒÀ¨ºÅ", (char*)TopSeqStack(stack));
+		PopSeqStack(stack);
+	}
+	DestroySeqStack(stack);
+}
+#endif
 int main()
 {
 	test();
