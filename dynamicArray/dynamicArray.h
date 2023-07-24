@@ -7,12 +7,12 @@
 extern "C" {
 #endif // __cplusplus
 
-	struct dynamicArray
+	typedef struct dynamicArray
 	{
 		void** m_pAddr;
 		int m_nCapacity;
 		int m_nSize;
-	};
+	}dynamicArray;
 	struct dynamicArray* initDynamicArray(int capacity);
 	void insertDynamicArray(struct dynamicArray* array, int pos, void* data);
 	void foreachDynamicArray(struct dynamicArray* array, void(*myForech)(void*));
