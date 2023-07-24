@@ -13,27 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="dynamicArray">
-      <UniqueIdentifier>{7dc4253f-ae99-4c8c-bb5c-6f3b599d5d6c}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="seqQueue.c">
+    <ClCompile Include="linkQueue.c">
       <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dynamicArray\dynamicArray.c">
-      <Filter>dynamicArray</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="seqQueue.h">
+    <ClInclude Include="linkQueue.h">
       <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dynamicArray\dynamicArray.h">
-      <Filter>dynamicArray</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

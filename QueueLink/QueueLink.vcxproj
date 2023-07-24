@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{0dc041a4-8ca0-4779-9066-c247702d2027}</ProjectGuid>
-    <RootNamespace>QueueSeq</RootNamespace>
+    <ProjectGuid>{508a9f08-8cd9-48f1-9dae-80cd139de226}</ProjectGuid>
+    <RootNamespace>QueueLink</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,13 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\dynamicArray\dynamicArray.c" />
+    <ClCompile Include="linkQueue.c" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="seqQueue.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\dynamicArray\dynamicArray.h" />
-    <ClInclude Include="seqQueue.h" />
+    <ClInclude Include="linkQueue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
