@@ -33,6 +33,10 @@ void popLinkQueue(LinkQueue queue)
 	QueueNode* pFront = myQueue->header.next;
 	myQueue->header.next = pFront->next;
 	myQueue->size--;
+	if (myQueue->size == 0)
+	{
+		myQueue->pTail = &myQueue->header;
+	}
 }
 void* frontLinkQueue(LinkQueue queue)
 {
