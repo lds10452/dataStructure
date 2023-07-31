@@ -13,10 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="stack">
+      <UniqueIdentifier>{2ffc7787-423d-4c58-a045-226fa662c2e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="binaryTree.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\stack\seqStack.c">
+      <Filter>stack</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\stack\seqStack.h">
+      <Filter>stack</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

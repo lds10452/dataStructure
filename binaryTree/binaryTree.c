@@ -1,7 +1,17 @@
 #include<stdio.h>
 #include<stdlib.h>
-
-//所有函数都可以看作是对一个结点操作：
+#include"../stack/seqStack.h"
+//非递归遍历
+typedef struct NonBinaryTreeNode
+{
+	char ch;
+	struct BinaryTreeNode* lChild;
+	struct BinaryTreeNode* rChild;
+	int flag;
+}NonBinaryTreeNode;
+void nonRecursion(NonBinaryTreeNode* root);
+//递归遍历
+//所有递归的函数都可以看作是对一个结点操作：
 //要么为空，要么对应操作，一般操作之前，先左子树再右子树操作
 //即：判空，左子树，右子树，操作
 
@@ -90,9 +100,57 @@ void test()
 	printf("\nfree:");
 	freeTree(newTree);
 }
+void test1()
+{
+	NonBinaryTreeNode nodeB = { 'B',NULL,NULL ,0 };
+	NonBinaryTreeNode nodeC = { 'C',NULL,NULL ,0 };
+	NonBinaryTreeNode nodeA = { 'A',NULL,NULL ,0 };
+	NonBinaryTreeNode nodeD = { 'D',NULL,NULL ,0 };
+	NonBinaryTreeNode nodeE = { 'E',NULL,NULL ,0 };
+	NonBinaryTreeNode nodeF = { 'F',NULL,NULL ,0 };
+	NonBinaryTreeNode nodeG = { 'G',NULL,NULL ,0 };
+	NonBinaryTreeNode nodeH = { 'H',NULL,NULL ,0 };
+	nodeA.lChild = &nodeB;
+	nodeA.rChild = &nodeF;
+	nodeB.rChild = &nodeC;
+	nodeC.lChild = &nodeD;
+	nodeC.rChild = &nodeE;
+	nodeF.rChild = &nodeG;
+	nodeG.lChild = &nodeH;
+	nonRecursion(&nodeA);
+}
 int main()
 {
 	test();
+	//test1();
 	system("pause");
 	return 0;
+}
+void nonRecursion(NonBinaryTreeNode* root)
+{
+	if (!root)return;
+	SeqStack* stack = InitSeqStack();
+	if (!stack)return;
+	PushSeqStack(stack, root);
+	while (SizeSeqStack(stack)>0)
+	{
+		NonBinaryTreeNode* myNode = TopSeqStack(stack);
+		PopSeqStack(stack);
+		if (myNode->flag)
+		{
+			printf("%c ", myNode->ch);
+			continue;
+		}
+		myNode->flag = 1;
+		if (myNode->rChild)
+		{
+			PushSeqStack(stack, myNode->rChild);
+		}
+		if (myNode->lChild)
+		{
+			PushSeqStack(stack, myNode->lChild);
+		}
+		PushSeqStack(stack, myNode);
+	}
+	DestroySeqStack(stack);
 }
